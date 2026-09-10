@@ -1,23 +1,33 @@
-<h1>USER</h1>
+<section>
 
-@if ( logged ) {
-    <p>Bienvenido {{ username }}</p>
-    <button [disabled]="isDisable" (click)="logged = false">Cerrar sesión</button>
-} @else {
-    <p>Iniciar sesion</p>
-    <button [disabled]="isDisable" (click)="logged = true">Inicia sesion</button>
-}
+    <app-sign
+        (linkChange)="setUserLink($event)"
+    />
 
-<app-property
-    (addDisableEvent)="getDisableButton($event)"
-/>
+    @if ( logged() ) {
+        <p>Bienvenido {{ username() }}</p>
+        <button [disabled]="isDisable()" (click)="logged.set(false)">Cerrar sesión</button>
+    } @else {
+        <p>Iniciar sesion</p>
+        <button [disabled]="isDisable()" (click)="logged.set(true)">Inicia sesion</button>
+    }
 
-<app-games
-    (addFavoriteEvent)="getFavGame($event)"
-    username="{{ username }}"
-/>
+    <app-property
+        (addDisableEvent)="toggleDisable()"
+    />
+
+    <app-games
+        (addFavoriteEvent)="setFavGame($event)"
+        username="{{ username() }}"
+    />
+    @if (favGame()) {
+        <p>Tu juego favorito es {{ favGame() }} </p>
+    }
 
 
-@if (favGame) {
-    <p>Tu juego favorito es {{ favGame }} </p>
-}
+    <app-events
+        username="{{ username() }}"
+        imageUrl="{{ userLink() }}"
+    />
+
+</section>

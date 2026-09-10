@@ -10,7 +10,7 @@ export class Property {
 
   @Output() addDisableEvent = new EventEmitter<boolean>();
 
-  emitDisableEvent(value: boolean) {
-    this.addDisableEvent.emit(value)
+  emitDisableEvent() {
+    this.addDisableEvent.emit()
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-events',
@@ -8,7 +8,10 @@ import { Component } from '@angular/core';
 })
 export class EventsComponent {
 
+  @Input() username = '';
+  @Input() imageUrl = '';
+
   greet() {
-    alert('Hola')
+    alert(`Hola ${this.username}`)
   }
 }

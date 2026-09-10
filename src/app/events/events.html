@@ -1,5 +1,4 @@
-<h1>EVENTS</h1>
-
 <section>
-    <img (click)="greet()" alt="profile" src="https://github.com/D4N-1.png">
+    <p>El link es: {{ imageUrl }}</p>
+    <img (click)="greet()" alt="profile" src="{{ imageUrl + '.png' }}">
 </section>

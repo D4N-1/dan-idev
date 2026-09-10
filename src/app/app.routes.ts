@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { GamesComponent } from './games/games';
+import { UserComponent } from './user/user';
 
 export const routes: Routes = [
 
 
     {
-       path: 'try', component: GamesComponent
+       path: 'try', component: UserComponent
     },
     {
         path: '**',
