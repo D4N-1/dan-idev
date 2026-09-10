@@ -2,16 +2,6 @@
     
     <h2>{{ title() }}</h2>
 
-    <app-user/>
-
-    @defer (on viewport) {
-        <app-events/>
-    } @placeholder {
-        <p>.</p>
-    } @loading () {
-        <p>Cargando imagen...</p> 
-    }
+    <router-outlet/>
     
 </section>
-
-<!-- <router-outlet /> -->

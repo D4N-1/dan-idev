@@ -1,14 +1,21 @@
+<h1>USER</h1>
+
 @if ( logged ) {
     <p>Bienvenido {{ username }}</p>
-    <button (click)="logged = false">Cerrar sesión</button>
+    <button [disabled]="isDisable" (click)="logged = false">Cerrar sesión</button>
 } @else {
     <p>Iniciar sesion</p>
-    <button (click)="logged = true">Inicia sesion</button>
+    <button [disabled]="isDisable" (click)="logged = true">Inicia sesion</button>
 }
+
+<app-property
+    (addDisableEvent)="getDisableButton($event)"
+/>
 
 <app-games
     (addFavoriteEvent)="getFavGame($event)"
-    username="{{ username }}"/>
+    username="{{ username }}"
+/>
 
 
 @if (favGame) {

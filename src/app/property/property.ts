@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-property',
@@ -6,4 +6,11 @@ import { Component } from '@angular/core';
   templateUrl: './property.html',
   styleUrl: './property.scss',
 })
-export class Property {}
+export class Property {
+
+  @Output() addDisableEvent = new EventEmitter<boolean>();
+
+  emitDisableEvent(value: boolean) {
+    this.addDisableEvent.emit(value)
+  }
+}
